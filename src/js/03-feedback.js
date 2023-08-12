@@ -23,14 +23,19 @@ function handlerSaveText(evt) {
 function onClickSubmit(evt) {
   
   evt.preventDefault();  // щоб неперезавантажувалося 
-  evt.currentTarget.reset();  // зкидує всі значення полів введення
+   //  feedbackData = { email: email.value, message: message.value }
+
+  console.log({"Email": email.value , "Message": message.value})
+    
+ evt.currentTarget.reset();  // зкидує всі значення полів введення
   localStorage.removeItem(KEY_FEEDBACK);  // зачищаємо localStorage
 }
+
 function updateOutput() {
-    
-const saveFeedback =JSON.parse(localStorage.getItem(KEY_FEEDBACK)) || '';
-  
-  email.value = saveFeedback.email;
-  message.value = saveFeedback.message;
-    
+        // feedbackData = { email: email.value, message: message.value }
+const fd = localStorage.getItem(KEY_FEEDBACK)
+  const saveFeedback = JSON.parse(fd) ?? {}
+
+  email.value = saveFeedback.email ?? '';
+  message.value = saveFeedback.message ?? '';
 }
