@@ -14,11 +14,11 @@ feedbackForm.addEventListener('submit', onClickSubmit)
 
 function handlerSaveText(evt) {
 
-  if (evt.currentTarget) {
+ 
     feedbackData = { email: email.value, message: message.value }
     localStorage.setItem(KEY_FEEDBACK, JSON.stringify(feedbackData));
 }
-}
+
 
 function onClickSubmit(evt) {
   
